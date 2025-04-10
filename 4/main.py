@@ -64,8 +64,13 @@ def solve_part2(lines:list[str]) -> int:
         winning_numbers, selected_numbers = parse_line(line)
 
         score_list.append(score_numbers(winning_numbers, selected_numbers))
-
+        # creates a list of matches in each line
         cards_list.append(1)
+        # creates a list of cards initially worked with
+
+        # both these lists are later used in function list_to_total
+        # where we use score list to determine total number of cards
+        # we had from beginning + created by the duplication
 
     return list_to_total(cards_list, score_list)
 
