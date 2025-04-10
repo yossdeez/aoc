@@ -46,12 +46,16 @@ def solve_part2(lines:list[str]) -> int:
         return score
 
     def list_to_total(first_list: list[int],second_list: list[int]) -> int:
+        # This function calculates the total number of scratchcards
+        # first_list: counts of each card type
+        # second_list: number of matches for each card type
+
         for j, number in enumerate(second_list):
-            for s in range(first_list[j]):
+            for _ in range(first_list[j]):
+                # For each card, add copies of the next 'number' cards
                 for i in range(number):
                     if j + i + 1 < len(first_list):
                         first_list[j + i + 1] += 1
-                        i += 1
 
         return sum(first_list)
 
